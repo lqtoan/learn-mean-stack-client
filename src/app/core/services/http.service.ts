@@ -18,4 +18,8 @@ export class HttpService {
   public get(url: string): Observable<any> {
     return this.httpClient.get<any>(url, this.httpOptions);
   }
+
+  public post(url: string, payload: any): Observable<any> {
+    return this.httpClient.post<any>(url, payload, this.httpOptions);
+  }
 }
