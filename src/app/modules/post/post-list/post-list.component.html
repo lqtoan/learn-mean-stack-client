@@ -1,6 +1,7 @@
-<p>post-list works!</p>
-<div *ngFor="let post of posts">
-  <strong>
-    {{ post.title }}
-  </strong>
+<div class="post-list" *ngFor="let post of posts">
+  <div class="post">
+    <strong class="post__title">{{ post.title }}</strong>
+    <p class="post__description">{{ post.description }}</p>
+    <p>{{ post.user }}</p>
+  </div>
 </div>

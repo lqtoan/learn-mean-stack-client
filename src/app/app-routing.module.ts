@@ -1,18 +1,27 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PostListComponent } from './modules/post/post-list/post-list.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './modules/home/home.component';
 
 const routes: Routes = [
-  { path: 'post', component: PostListComponent },
+  { path: 'home', component: HomeComponent },
+  {
+    path: 'post',
+    loadChildren: () =>
+      import('./modules/post/post.module').then((m) => m.PostModule),
+  },
   {
     path: '',
-    redirectTo: 'post',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

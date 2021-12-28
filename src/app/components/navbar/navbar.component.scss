@@ -1,0 +1,13 @@
+@import "../../../styles.scss";
+
+.navbar {
+  display: flex;
+  background: $black;
+  &__link {
+    padding: 1rem;
+    color: $white;
+  }
+  .selected {
+    color: $magenta;
+  }
+}

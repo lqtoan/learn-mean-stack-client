@@ -1,0 +1,23 @@
+@import "../../../styles.scss";
+
+button {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+button:not(:first-of-type) {
+  margin-left: 1rem;
+}
+.add {
+  background: $magenta;
+  color: $white;
+}
+
+.back {
+  background: $white;
+  color: $magenta;
+  border: 1px solid $magenta;
+}
+.back:hover {
+  text-decoration: underline;
+}

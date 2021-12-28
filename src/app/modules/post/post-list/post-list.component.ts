@@ -2,6 +2,7 @@ import { environment } from './../../../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/core/services/http.service';
 import { Post } from 'src/app/models/post';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-post-list',
@@ -10,6 +11,7 @@ import { Post } from 'src/app/models/post';
 })
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
+
   private POST_API = `${environment.API}posts`;
   constructor(private httpService: HttpService) {}
 
