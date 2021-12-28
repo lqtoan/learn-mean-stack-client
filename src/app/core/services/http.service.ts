@@ -1,9 +1,21 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor() { }
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+    }),
+  };
+
+  public get(url: string): Observable<any> {
+    return this.httpClient.get<any>(url, this.httpOptions);
+  }
 }

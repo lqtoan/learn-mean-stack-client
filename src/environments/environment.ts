@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'https://learn-mean-stack-api.herokuapp.com/api',
+  API: 'https://learn-mean-stack-api.herokuapp.com/api/',
 };
 
 /*
