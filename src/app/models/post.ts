@@ -8,6 +8,7 @@ export class Post {
     this.user = user;
   }
 
+  userId: User['id'];
   id: string;
   title: string;
   description: string;

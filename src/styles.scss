@@ -18,7 +18,7 @@ body {
   max-width: $max-width-container;
   background: $white;
   color: $black;
-  font-family: $primary-font;
+  font-family: $primary-font !important;
   font-display: fallback;
   overflow-x: hidden;
 }
