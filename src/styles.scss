@@ -57,15 +57,22 @@ li {
 input {
   padding: 0.5rem;
   border: none;
+  border-radius: 0.25rem;
 }
 input:focus {
   outline: none;
 }
 
-button {
-  border: none;
+.button {
+  background: $magenta;
+  color: $white;
+  border: 1px solid $magenta;
+  border-radius: 0.25rem;
   outline: none;
   cursor: pointer;
+}
+.button:hover {
+  opacity: 0.75;
 }
 
 @keyframes slideToRight {
