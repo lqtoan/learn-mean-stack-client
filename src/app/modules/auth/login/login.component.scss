@@ -1,0 +1,17 @@
+@import "../../../../styles.scss";
+
+.form {
+  padding: 1rem;
+  border: 1px solid $magenta;
+  border-radius: 0.5rem;
+  &__control {
+    margin-bottom: 2rem;
+    &__alert {
+      padding: 0.5rem 0;
+      color: $red;
+    }
+  }
+  .button {
+    padding: 0.25rem 0.5rem;
+  }
+}

@@ -1,0 +1,45 @@
+<form novalidate (ngSubmit)="login()" class="form" [formGroup]="userAccount">
+  <div class="form__control">
+    <label for="username" class="form__control__name"> Username: </label>
+    <div class="">
+      <input formControlName="username" class="" type="text" id="username" />
+    </div>
+    <small
+      class="form__control__alert"
+      role="alert"
+      *ngIf="
+        userAccount.controls.title?.errors?.required &&
+        userAccount.controls.title?.touched
+      "
+    >
+      Username is required!
+    </small>
+  </div>
+  <div class="form__control">
+    <label for="password" class="form__control__name"> Password: </label>
+    <div class="">
+      <input formControlName="password" type="password" id="password" />
+    </div>
+    <small
+      class="form__control__alert"
+      role="alert"
+      *ngIf="
+        userAccount.controls.password?.errors?.required &&
+        userAccount.controls.password?.touched
+      "
+    >
+      Username is required!
+    </small>
+  </div>
+
+  <div class="">
+    <div class="col-12">
+      <button class="button" type="submit">Submit</button>
+    </div>
+  </div>
+</form>
+<!-- <div>
+  <pre
+    >{{ userAccount.value | json }}
+  </pre>
+</div> -->
