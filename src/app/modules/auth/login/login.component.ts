@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
       .post(this.AUTH_API, this.userAccount.value)
       .subscribe((res) => {
         console.log(res);
+        alert(res.message);
       });
   }
 }
