@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           alert(res.message);
           this.router.navigate(['/post']);
           console.log(res.accessToken);
-          localStorage.setItem('accessToken', res.accessToken);
+          sessionStorage.setItem('accessToken', res.accessToken);
         } else {
           alert(res.message);
         }
