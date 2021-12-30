@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HttpService } from 'src/app/core/services/http.service';
 import { User } from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
@@ -14,7 +15,11 @@ export class LoginComponent implements OnInit {
   userAccount: FormGroup;
 
   private AUTH_API = `${environment.API}auth/login`;
-  constructor(private httpService: HttpService, private fb: FormBuilder) {}
+  constructor(
+    private httpService: HttpService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.userAccount = this.fb.group({
@@ -25,10 +30,17 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.httpService
-      .post(this.AUTH_API, this.userAccount.value)
+      .post(this.AUTH_API, this.userAccount.value as User)
       .subscribe((res) => {
         console.log(res);
-        alert(res.message);
+        if (res.success === true) {
+          alert(res.message);
+          this.router.navigate(['/post']);
+          console.log(res.accessToken);
+          localStorage.setItem('accessToken', res.accessToken);
+        } else {
+          alert(res.message);
+        }
       });
   }
 }

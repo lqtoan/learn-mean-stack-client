@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/core/services/http.service';
 import { Post } from 'src/app/models/post';
 import { User } from 'src/app/models/user';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-post-list',
@@ -13,14 +14,20 @@ export class PostListComponent implements OnInit {
   posts: Post[] = [];
 
   private POST_API = `${environment.API}posts`;
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService,
+    private postService: PostService
+  ) {}
 
   ngOnInit(): void {
     this.httpService.get(this.POST_API).subscribe((res) => {
       if (res && res.success) {
-        console.log(res.data);
+        // console.log(res.data);
         this.posts = res.data;
       }
     });
+    // this.postService.getPosts().subscribe((res) => {
+    //   this.posts = res;
+    // });
   }
 }

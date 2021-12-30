@@ -7,11 +7,13 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class HttpService {
+  accessToken: String = localStorage.getItem('accessToken');
   constructor(private httpClient: HttpClient) {}
 
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + this.accessToken,
     }),
   };
 
