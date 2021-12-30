@@ -26,6 +26,7 @@ export class PostAddComponent implements OnInit {
       title: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.maxLength(180)]],
       // image: ['', [Validators.required]],
+      createdAt: [Date.now()],
     });
   }
 

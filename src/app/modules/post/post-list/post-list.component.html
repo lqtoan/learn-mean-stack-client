@@ -2,7 +2,8 @@
   <div *ngIf="!posts">loading...</div>
   <div class="post">
     <strong class="post__title">{{ post.title }}</strong>
-    <p class="post__description">{{ post.description }}</p>
+    <small>{{ post.createdAt | date: "medium" }}</small>
     <p>{{ post.user.username }}</p>
+    <p class="post__description">{{ post.description }}</p>
   </div>
 </div>
