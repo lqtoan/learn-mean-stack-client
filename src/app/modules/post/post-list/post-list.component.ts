@@ -14,16 +14,15 @@ export class PostListComponent implements OnInit {
   posts: Post[] = [];
 
   private POST_API = `${environment.API}posts`;
-  constructor(
-    private httpService: HttpService,
-    private postService: PostService
-  ) {}
+  constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
     this.httpService.get(this.POST_API).subscribe((res) => {
       if (res && res.success) {
         console.log(res.data);
         this.posts = res.data;
+      } else {
+        alert(res.message);
       }
     });
     // this.postService.getPosts().subscribe((res) => {
