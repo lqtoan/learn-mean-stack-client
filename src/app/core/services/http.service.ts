@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class HttpService {
-  accessToken: String = sessionStorage.getItem('accessToken');
+  accessToken: string = sessionStorage.getItem('accessToken');
   constructor(private httpClient: HttpClient) {}
 
   private httpOptions = {

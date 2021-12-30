@@ -1,4 +1,5 @@
 <div class="post-list" *ngFor="let post of posts">
+  <div *ngIf="!posts">loading...</div>
   <div class="post">
     <strong class="post__title">{{ post.title }}</strong>
     <p class="post__description">{{ post.description }}</p>
