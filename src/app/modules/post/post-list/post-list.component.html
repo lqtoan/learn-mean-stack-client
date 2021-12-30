@@ -7,8 +7,9 @@
       <small class="post__createdAt">{{
         post.createdAt | date: "medium"
       }}</small>
+      <p>{{ post._id }}</p>
       <p class="post__description">{{ post.description }}</p>
     </div>
-    <button class="button" (click)="deletePost()">X</button>
+    <button class="button" (click)="delete(post._id)">X</button>
   </div>
 </div>

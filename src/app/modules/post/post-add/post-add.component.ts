@@ -1,3 +1,4 @@
+import { PostService } from './../post.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,7 +17,7 @@ export class PostAddComponent implements OnInit {
 
   private POST_API = `${environment.API}posts`;
   constructor(
-    private httpService: HttpService,
+    private postService: PostService,
     private fb: FormBuilder,
     private router: Router
   ) {}
@@ -31,15 +32,13 @@ export class PostAddComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.httpService
-      .post(this.POST_API, this.newPost.value)
-      .subscribe((res) => {
-        console.log(res);
-        if (res.success) {
-          alert(res.message);
-          this.router.navigate(['/post']);
-          this.newPost.reset();
-        }
-      });
+    this.postService.addPost(this.newPost.value).subscribe((res) => {
+      console.log(res);
+      if (res.success) {
+        alert(res.message);
+        this.router.navigate(['/post']);
+        this.newPost.reset();
+      }
+    });
   }
 }
