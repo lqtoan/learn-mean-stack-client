@@ -1,13 +1,37 @@
 @import "../../../styles.scss";
 
 .navbar {
-  display: flex;
   background: $black;
-  &__link {
-    padding: 1rem;
-    color: $white;
-  }
-  .selected {
+  padding: 1.5rem 10rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  cursor: pointer;
+  &__logo {
     color: $magenta;
+  }
+  &__menu {
+    margin-left: auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    .selected {
+      color: $magenta;
+      opacity: 0.8;
+    }
+    a {
+      margin-left: 1rem;
+      color: $white;
+      transition: $transition;
+    }
+    a:hover {
+      color: $magenta;
+    }
+  }
+}
+@media screen and (max-width: $mobile) {
+  .navbar {
+    padding: 1rem;
   }
 }

@@ -34,9 +34,11 @@ export class LoginComponent implements OnInit {
       .subscribe((res) => {
         console.log(res);
         if (res.success === true) {
-          alert(res.message);
-          this.router.navigate(['/post']);
+          alert(this.userAccount.value.username + ' ' + res.message);
           sessionStorage.setItem('accessToken', res.accessToken);
+          this.router.navigate(['/post']).then(() => {
+            window.location.reload();
+          });
         } else {
           alert(res.message);
         }

@@ -1,9 +1,14 @@
 <div *ngIf="!posts">loading...</div>
 <div class="post-list" *ngFor="let post of posts">
   <div class="post">
-    <strong class="post__title">{{ post.title }}</strong>
-    <small>{{ post.createdAt | date: "medium" }}</small>
-    <p>{{ post.user.username }}</p>
-    <p class="post__description">{{ post.description }}</p>
+    <p class="post__username">{{ post.user.username }}</p>
+    <div class="wrapper">
+      <strong class="post__title">{{ post.title }}</strong>
+      <small class="post__createdAt">{{
+        post.createdAt | date: "medium"
+      }}</small>
+      <p class="post__description">{{ post.description }}</p>
+    </div>
+    <button class="button" (click)="deletePost()">X</button>
   </div>
 </div>

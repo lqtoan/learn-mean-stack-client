@@ -1,20 +1,13 @@
-<div class="navbar">
-  <a
-    class="navbar__link"
-    [routerLink]="['home']"
-    [routerLinkActive]="['selected']"
-    >Home</a
-  >
-  <a
-    class="navbar__link"
-    [routerLink]="['post']"
-    [routerLinkActive]="['selected']"
-    >Post</a
-  >
-  <a
-    class="navbar__link"
-    [routerLink]="['login']"
-    [routerLinkActive]="['selected']"
-    >Login</a
-  >
-</div>
+<header class="navbar">
+  <h2 routerLink="/" class="navbar__logo">Posts</h2>
+  <nav class="navbar__menu">
+    <a [routerLink]="['/home']" routerLinkActive="selected">Home</a>
+    <a [routerLink]="['/post']" routerLinkActive="selected">Post</a>
+    <div *ngIf="!accessToken">
+      <a [routerLink]="['/login']" routerLinkActive="selected">Login</a>
+    </div>
+    <div *ngIf="accessToken">
+      <a (click)="logOut()">Logout</a>
+    </div>
+  </nav>
+</header>

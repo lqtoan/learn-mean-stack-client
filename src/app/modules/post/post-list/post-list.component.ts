@@ -30,4 +30,8 @@ export class PostListComponent implements OnInit {
     //   this.posts = res;
     // });
   }
+
+  deletePost() {
+    // this.httpService.delete(this.POST_API, )
+  }
 }

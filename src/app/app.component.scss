@@ -1,4 +1,10 @@
 @import "../styles.scss";
 .main {
-  padding: 1rem;
+  padding: 1rem 10rem;
+}
+
+@media screen and (max-width: $mobile) {
+  .main {
+    padding: 1rem;
+  }
 }

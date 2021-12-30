@@ -6,11 +6,26 @@
     margin-bottom: 1rem;
     padding: 1rem;
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.13);
     border-radius: 0.25rem;
     cursor: pointer;
+    &__username {
+      width: 100px;
+    }
+    .wrapper {
+      display: flex;
+      flex-flow: column;
+    }
+    .button {
+      margin-left: auto;
+      padding: 0.25rem 0.5rem;
+      background: $red;
+    }
   }
   .post:hover {
-    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
   }
 }
